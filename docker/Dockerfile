@@ -1,2 +1,3 @@
 FROM tomcat
-ADD /var/lib/jenkins/workspace/hello_world/target/helloworld.war /usr/local/tomcat/webapps
+ARG JAR_FILE=target/helloworld.war
+ADD ${JAR_FILE} /usr/local/tomcat/webapps
