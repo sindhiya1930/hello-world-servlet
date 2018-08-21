@@ -7,6 +7,11 @@
   <version>1.0-SNAPSHOT</version>
   <name>hello-world-servlet-example Maven Webapp</name>
   <url>http://maven.apache.org</url>
+<properties>
+	<docker.image.prefix>336809125027.dkr.ecr.us-east-2.amazonaws.com/hello_world</docker.image.prefix>
+	<docker.plugin.version>1.1.0</docker.plugin.version>
+	<project.build.finalName>my-app-1.0-SNAPSHOT</project.build.finalName>
+</properties>
   <dependencies>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -79,6 +84,17 @@
 		   </images>
 		</configuration>
             </plugin>
+		<plugin>
+		<groupId>com.spotify</groupId>
+		<artifactId>dockerfile-maven-plugin</artifactId>
+		<version>${docker.plugin.version}</version>
+		<configuration>
+			<repository>${docker.image.prefix}/${project.artifactId}</repository>
+			<buildArgs>
+			<JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+			</buildArgs>
+		</configuration>
+	</plugin>
         </plugins>
   </build>
 </project>
