@@ -10,7 +10,7 @@
 <properties>
 	<docker.image.prefix>336809125027.dkr.ecr.us-east-2.amazonaws.com/hello_world</docker.image.prefix>
 	<docker.plugin.version>1.1.0</docker.plugin.version>
-	<project.build.finalName>hello-world-servlet-example Maven Webapp 1.0-SNAPSHOT</project.build.finalName>
+	<project.build.finalName>helloworld.war</project.build.finalName>
 </properties>
   <dependencies>
         <dependency>
